@@ -21,6 +21,7 @@ ROADMAP CHECKLIST:
 
     1. Design mlg meme sign in page DONE
     2. Figure out what the point was 
+    3. turn down airhorn (Yikes!)
 
 FUTURE:
     1. travel back in time to show people.
