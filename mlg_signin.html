@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLG 360 NOSCOPE SIGN-IN</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: url('https://24.media.tumblr.com/7ae876872522f034b24d36d4ad3fc62c/tumblr_mjyzz4HraT1qfssbno1_500.gif') repeat;
+            overflow: hidden;
+            color: lime;
+            text-shadow: 2px 2px 0 #ff00ff, -2px -2px 0 #00ffff;
+        }
+        
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .login-box {
+            background: rgba(0, 0, 0, 0.7);
+            border: 5px solid #ff9900;
+            border-radius: 20px;
+            padding: 30px;
+            width: 350px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 0 20px #ff00ff, 0 0 30px #00ffff;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ffff00;
+            transform: rotate(-2deg);
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 3px solid #ff9900;
+            background: black;
+            color: white;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-size: 16px;
+            border-radius: 10px;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, #ff0000, #ff9900);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(to right, #ff9900, #ff0000);
+            transform: scale(1.1);
+        }
+        
+        .doritos, .mountain-dew, .snoop, .hit-marker, .illuminati {
+            position: absolute;
+            z-index: 5;
+        }
+        
+        .doritos {
+            width: 150px;
+            top: 10%;
+            left: 10%;
+            animation: spin 4s linear infinite;
+        }
+        
+        .mountain-dew {
+            width: 120px;
+            bottom: 10%;
+            right: 10%;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        .snoop {
+            width: 200px;
+            bottom: 5%;
+            left: 5%;
+            animation: dance 3s ease-in-out infinite;
+        }
+        
+        .hit-marker {
+            width: 80px;
+            top: 15%;
+            right: 15%;
+            animation: pulse 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes dance {
+            0%, 100% { transform: translateX(0) rotate(5deg); }
+            50% { transform: translateX(20px) rotate(-5deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+        
+        /* Airhorn CSS removed - now plays on any click outside login box */
+        
+        .hidden {
+            display: none;
+        }
+        
+        .wow {
+            position: absolute;
+            font-size: 72px;
+            color: yellow;
+            font-weight: bold;
+            z-index: 100;
+            pointer-events: none;
+            text-shadow: 3px 3px 0 #ff00ff, -3px -3px 0 #00ffff;
+        }
+        
+        /* Multiple animation options for WOW text */
+        .wow-anim1 { animation: zoomOut 1.5s forwards; }
+        .wow-anim2 { animation: spinZoom 2s forwards; }
+        .wow-anim3 { animation: bounce 1.8s forwards; }
+        .wow-anim4 { animation: shake 1.5s forwards; }
+        
+        @keyframes zoomOut {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.5); opacity: 1; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+        
+        @keyframes spinZoom {
+            0% { transform: scale(0.5) rotate(0deg); opacity: 0; }
+            50% { transform: scale(1.5) rotate(180deg); opacity: 1; }
+            100% { transform: scale(3) rotate(360deg); opacity: 0; }
+        }
+        
+        @keyframes bounce {
+            0% { transform: translateY(0) scale(0.5); opacity: 0; }
+            20% { transform: translateY(-100px) scale(1); opacity: 1; }
+            40% { transform: translateY(0) scale(1.2); opacity: 1; }
+            60% { transform: translateY(-50px) scale(1.5); opacity: 1; }
+            80% { transform: translateY(0) scale(2); opacity: 0.5; }
+            100% { transform: translateY(100px) scale(3); opacity: 0; }
+        }
+        
+        @keyframes shake {
+            0% { transform: translate(0, 0) scale(0.5); opacity: 0; }
+            10% { transform: translate(-10px, 0) scale(1); opacity: 1; }
+            20% { transform: translate(10px, 0) scale(1.1); opacity: 1; }
+            30% { transform: translate(-10px, 0) scale(1.2); opacity: 1; }
+            40% { transform: translate(10px, 0) scale(1.3); opacity: 1; }
+            50% { transform: translate(-10px, 0) scale(1.5); opacity: 1; }
+            60% { transform: translate(10px, 0) scale(1.7); opacity: 0.8; }
+            70% { transform: translate(-10px, 0) scale(2); opacity: 0.6; }
+            80% { transform: translate(10px, 0) scale(2.3); opacity: 0.4; }
+            90% { transform: translate(-10px, 0) scale(2.6); opacity: 0.2; }
+            100% { transform: translate(0, 0) scale(3); opacity: 0; }
+        }
+        
+        .success-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .success-message h2 {
+            font-size: 72px;
+            color: lime;
+            text-shadow: 3px 3px 0 #ff00ff, -3px -3px 0 #00ffff;
+            margin-bottom: 30px;
+        }
+        
+        .rainbow-text {
+            animation: rainbow 2s linear infinite;
+        }
+        
+        @keyframes rainbow {
+            0% { color: red; }
+            14% { color: orange; }
+            28% { color: yellow; }
+            42% { color: green; }
+            57% { color: blue; }
+            71% { color: indigo; }
+            85% { color: violet; }
+            100% { color: red; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h1>MLG PRO SIGN-IN</h1>
+            <div class="input-group">
+                <label for="username">GAMERTAG:</label>
+                <input type="text" id="username" placeholder="xXx_360NoScope_xXx">
+            </div>
+            <div class="input-group">
+                <label for="password">SECRET CODE:</label>
+                <input type="password" id="password" placeholder="********">
+            </div>
+            <button class="btn" id="login-btn">GET REKT</button>
+        </div>
+        
+        <img src="https://images.steamusercontent.com/ugc/284098744525028512/77324A66AC38291C67C5E85805CAC8DB5FF789B1/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" class="doritos" id="doritos-img">
+        <img src="https://media.tenor.com/2BbH-0pJCX0AAAAM/mountain-dew-dancing.gif" class="mountain-dew" id="dew-img">
+        <img src="https://media.tenor.com/Q8sFMHRwc2EAAAAM/mlg-snoop-dogg.gif" class="snoop" id="snoop-img">
+        <img src="https://img1.picmix.com/output/stamp/normal/7/4/9/2/1962947_bd57a.gif" class="hit-marker" id="hitmarker-img">
+        <img src="https://i.makeagif.com/media/7-13-2016/QjkQBJ.gif" class="illuminati" id="illuminati-img" style="position: absolute; width: 120px; top: 70%; right: 20%; animation: float 3s ease-in-out infinite;">
+    </div>
+    
+    <!-- Airhorn removed, now plays on any click outside login box -->
+    
+    <audio id="airhorn-sound" class="hidden">
+        <source src="https://www.myinstants.com/media/sounds/mlg-airhorn.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="wow-sound" class="hidden">
+        <source src="https://www.myinstants.com/media/sounds/wow-mlg.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="hitmarker-sound" class="hidden">
+        <source src="https://www.myinstants.com/media/sounds/hitmarker_2.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="success-sound" class="hidden">
+        <source src="https://www.myinstants.com/media/sounds/sad-violin-mlg-sound-effect.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div class="success-message" id="success-message">
+        <h2 class="rainbow-text">CONGRATULATIONS</h2>
+        <h2>YOU ARE NOW A</h2>
+        <h2 class="rainbow-text">CERTIFIED MLG PRO</h2>
+        <img src="https://i.kym-cdn.com/photos/images/original/000/832/115/7ff.gif" width="400">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Airhorn button removed
+            const airhornSound = document.getElementById('airhorn-sound');
+            const wowSound = document.getElementById('wow-sound');
+            const hitmarkerSound = document.getElementById('hitmarker-sound');
+            const successSound = document.getElementById('success-sound');
+            const loginBtn = document.getElementById('login-btn');
+            const successMessage = document.getElementById('success-message');
+            
+            // Play random wow sounds
+            setInterval(function() {
+                if (Math.random() > 0.95) {
+                    // Play the sound for random wow effects
+                    wowSound.currentTime = 0;
+                    wowSound.play();
+                    
+                    // Show random wow effect
+                    playWowEffect();
+                }
+            }, 2000);
+            
+            // Random hit marker sounds and airhorn when clicking outside login box
+            document.addEventListener('click', function(event) {
+                // Check if click is outside the login box
+                const loginBox = document.querySelector('.login-box');
+                const isClickInsideLoginBox = loginBox.contains(event.target);
+                
+                // Always play hit marker sound and show hit marker
+                hitmarkerSound.currentTime = 0;
+                hitmarkerSound.play();
+                
+                const hitMarker = document.createElement('img');
+                hitMarker.src = 'https://img1.picmix.com/output/stamp/normal/7/4/9/2/1962947_bd57a.gif';
+                hitMarker.style.position = 'absolute';
+                hitMarker.style.left = (event.pageX - 25) + 'px';
+                hitMarker.style.top = (event.pageY - 25) + 'px';
+                hitMarker.style.width = '50px';
+                hitMarker.style.zIndex = '999';
+                document.body.appendChild(hitMarker);
+                
+                setTimeout(function() {
+                    document.body.removeChild(hitMarker);
+                }, 300);
+                
+                // Play airhorn sound if click is outside login box
+                if (!isClickInsideLoginBox) {
+                    airhornSound.currentTime = 0;
+                    airhornSound.play();
+                }
+            });
+            
+            // Airhorn button removed - now plays on any click outside login box
+            
+            // Add event listeners to all GIFs to play wow sound when clicked
+            const gifImages = [
+                document.getElementById('doritos-img'),
+                document.getElementById('dew-img'),
+                document.getElementById('snoop-img'),
+                document.getElementById('hitmarker-img'),
+                document.getElementById('illuminati-img')
+            ];
+            
+            // Add click event listener to each GIF
+            gifImages.forEach(function(img) {
+                img.addEventListener('click', function(event) {
+                    // Create multiple wow effects for MAXIMUM SPAMMINESS
+                    for (let i = 0; i < 6; i++) {
+                        // Create a new audio element each time to allow overlapping sounds
+                        const newWowSound = new Audio('https://www.myinstants.com/media/sounds/wow-mlg.mp3');
+                        newWowSound.volume = 1.0;
+                        newWowSound.play();
+                        
+                        // Create multiple wow text effects at different positions around the click
+                        const offsetX = event.pageX + (Math.random() * 200 - 100);
+                        const offsetY = event.pageY + (Math.random() * 200 - 100);
+                        
+                        // Stagger the creation of effects for even more chaos
+                        setTimeout(function() {
+                            playWowEffect(offsetX, offsetY);
+                        }, i * 100);
+                    }
+                    
+                    // Prevent the event from bubbling up to document click handler
+                    event.stopPropagation();
+                });
+            });
+            
+            // Login button
+            loginBtn.addEventListener('click', function() {
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                
+                if (username && password) {
+                    // Shake the screen
+                    document.body.style.animation = 'shake 0.5s';
+                    setTimeout(function() {
+                        document.body.style.animation = '';
+                    }, 500);
+                    
+                    // Play success sound
+                    successSound.play();
+                    
+                    // Show success message
+                    successMessage.style.display = 'flex';
+                    
+                    // Create a bunch of random MLG images
+                    const images = [
+                        'https://images.steamusercontent.com/ugc/284098744525028512/77324A66AC38291C67C5E85805CAC8DB5FF789B1/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false',
+                        'https://media.tenor.com/2BbH-0pJCX0AAAAM/mountain-dew-dancing.gif',
+                        'https://media.tenor.com/Q8sFMHRwc2EAAAAM/mlg-snoop-dogg.gif',
+                        'https://img1.picmix.com/output/stamp/normal/7/4/9/2/1962947_bd57a.gif',
+                        'https://i.kym-cdn.com/photos/images/original/000/832/115/7ff.gif',
+                        'https://i.makeagif.com/media/7-13-2016/QjkQBJ.gif'
+                    ];
+                    
+                    for (let i = 0; i < 20; i++) {
+                        setTimeout(function() {
+                            const img = document.createElement('img');
+                            img.src = images[Math.floor(Math.random() * images.length)];
+                            img.style.position = 'fixed';
+                            img.style.left = Math.random() * window.innerWidth + 'px';
+                            img.style.top = Math.random() * window.innerHeight + 'px';
+                            img.style.width = (50 + Math.random() * 100) + 'px';
+                            img.style.zIndex = '1001';
+                            img.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
+                            document.body.appendChild(img);
+                        }, i * 200);
+                    }
+                } else {
+                    alert('U WOT M8? FILL IN THE FIELDS!');
+                }
+            });
+            
+            // Function to create wow effect
+            function playWowEffect(x, y) {
+                // If coordinates are not provided, use random position
+                if (x === undefined || y === undefined) {
+                    x = Math.random() * window.innerWidth;
+                    y = Math.random() * window.innerHeight;
+                }
+                
+                // Don't play the sound here since it's already played in the click handler
+                // when called from GIF clicks
+                
+                const wow = document.createElement('div');
+                wow.className = 'wow';
+                
+                // Random WOW variations
+                const wowTexts = ['WOW', 'WOOOW', 'W0W', 'MOM GET THE CAMERA', 'OH BABY A TRIPLE', 'DAMN SON', '360 NOSCOPE'];
+                wow.textContent = wowTexts[Math.floor(Math.random() * wowTexts.length)];
+                
+                // Random colors
+                const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                wow.style.color = randomColor;
+                
+                // Random rotation
+                const rotation = (Math.random() * 40 - 20);
+                wow.style.transform = 'rotate(' + rotation + 'deg)';
+                
+                // Random size
+                const size = 50 + Math.floor(Math.random() * 50);
+                wow.style.fontSize = size + 'px';
+                
+                wow.style.left = x + 'px';
+                wow.style.top = y + 'px';
+                document.body.appendChild(wow);
+                
+                // Add a random animation class
+                const animClasses = ['wow-anim1', 'wow-anim2', 'wow-anim3', 'wow-anim4'];
+                wow.classList.add(animClasses[Math.floor(Math.random() * animClasses.length)]);
+                
+                // Remove after animation completes (use the longest animation duration)
+                setTimeout(function() {
+                    if (document.body.contains(wow)) {
+                        document.body.removeChild(wow);
+                    }
+                }, 2000);
+            }
+            
+            // Add shake animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+                    20%, 40%, 60%, 80% { transform: translateX(10px); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
